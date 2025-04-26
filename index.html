@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Visualizer</title>
+</head>
+<body>
+    <h1>Stock Visualizer</h1>
+    <form method="POST">
+        <label for="stock_symbol">Enter Stock Symbol:</label>
+        <input type="text" name="stock_symbol" id="stock_symbol" required>
+        <button type="submit">Visualize Stock</button>
+    </form>
+    
+    {% if chart %}
+        <h2>Stock Chart for {{ stock_symbol }}</h2>
+        <img src="{{ chart }}" alt="Stock chart">
+    {% elif error %}
+        <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html>
